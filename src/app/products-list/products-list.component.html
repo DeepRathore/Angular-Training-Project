@@ -1,0 +1,31 @@
+<div class="products-section">
+  <mat-toolbar color="warm">
+    <a mat-button href="/cart" color="warm"><mat-icon>shopping_cart</mat-icon>Cart</a>
+    <button mat-raised-button color="warn" (click)="openDialog()">Add Product</button>
+  </mat-toolbar>
+  <mat-spinner *ngIf="!productsList"></mat-spinner>
+  <ng-container *ngIf="productsList">
+    <mat-grid-list class="prod-container" cols="3">
+      <div *ngFor="let prod of productsList">
+        <mat-grid-tile class="section" id="{{prod.id}}">
+          <mat-card class="card-section">
+            <mat-card-header>
+              <div mat-card-avatar class="header-image"></div>
+              <mat-card-title>{{prod.title}}</mat-card-title>
+            </mat-card-header>
+            <img src="{{prod.image}}" class="image" width="170" class="image" height="170">
+            <mat-card-content>
+              <p>
+                {{prod.description}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button><span class="text-primary">Price: {{prod.price}}</span></button>
+              <button mat-button><span class="text-primary">Rating: {{prod.rating.rate}}</span></button>
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </ng-container>
+</div>

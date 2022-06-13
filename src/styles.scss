@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-spinner {
+    position: absolute;
+    left: 42%;
+    top: 42%;
+
+    svg {
+      width: 45px !important;
+    }
+}
+
+.mat-nav-list {
+  .mat-icon {
+    position: absolute;
+    right: 37%;
+  }
+}

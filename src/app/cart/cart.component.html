@@ -1,0 +1,27 @@
+<mat-spinner *ngIf="!cartDetails"></mat-spinner>
+<section *ngIf="cartDetails">
+  <div class="spacer">
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-lg-9">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cartDetails.products">
+                <td>Demo Product</td>
+                <td>$400</td>
+                <td class="text-right">{{ item.quantity }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
