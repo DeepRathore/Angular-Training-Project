@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,10 +9,8 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { ProductsListComponent } from './products-list/products-list.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { HttpClientModule } from '@angular/common/http';
-import { CategoriesListComponent } from './categories-list/categories-list.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -27,14 +24,15 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CartComponent } from './cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { AppRoutingModule } from './app-routing.module';
+import { MatOptionModule } from '@angular/material/core';
+import { HttpInterceptorService } from './http-interceptor.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsListComponent,
-    CategoriesListComponent,
     AddProductModalComponent,
     ProfileComponent,
     LoginComponent,
@@ -62,10 +60,17 @@ import { MatTableModule } from '@angular/material/table'
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatOptionModule
   ],
   providers: [
-    AuthGuard],
-  bootstrap: [AppComponent]
+    AuthGuard, 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

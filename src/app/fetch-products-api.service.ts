@@ -32,4 +32,8 @@ export class FetchProductsApiService {
   public userCartDetails(userId: any):Observable<any> {
     return this.http.get('https://fakestoreapi.com/carts/user/' + userId);
   }
+
+  public addProduct(params: any):Observable<any> {
+    return this.http.post('https://fakestoreapi.com/products', params);
+  }
 }

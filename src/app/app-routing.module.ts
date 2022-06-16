@@ -10,8 +10,10 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ProfileComponent } from './profile-component/profile-component';
 
 const routes: Routes = [
-  {path: '', component: CategoriesListComponent},
-  {path: 'products', component: ProductsListComponent},
+  {path: '',
+  loadChildren: () => import('./categories-list/category-list.module').then(c => c.CategoryListModule),
+  component: CategoriesListComponent},
+  {path: 'products', loadChildren: () => import('./products-list/product-list.module').then(p => p.ProductListModule), component: ProductsListComponent},
   {path: 'products/category/:id', component: ProductsListComponent, canActivate: [ AuthGuard ]},
   {path: 'profile', component: ProfileComponent, canActivate: [ AuthGuard ]},
   {path: 'login', component: LoginComponent},

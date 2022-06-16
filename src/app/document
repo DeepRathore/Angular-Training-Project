@@ -14,4 +14,12 @@ Has added auth service and auth gurd
 Has auth guarded cart page, profile page and products list page
 Used api for cart iterms per user
 used local storage to store token.
+
+
+
+Added reactive form in ad-product-modal
+added lazy loading in category list and product list
+HttpInterceptorService set the headers token
+used pipe - in HttpInterceptorService for throwing error on api fail
+
     
