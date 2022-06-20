@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+    <mat-sidenav-container class="col-sm-12 main-container">
+      <mat-sidenav class="col-sm-3" opened mode="side" [fixedInViewport]="true">
+        <div class="title text-center"><img src="https://angular.io/assets/images/logos/angular/angular.svg">Shopping Mart</div>
+        <ul>
+          <a href="/profile"><li><button mat-button>Profile</button></li></a>
+          <li><button mat-button>Cart</button></li>
+        </ul>
+      </mat-sidenav>
+      <mat-sidenav-content class="col-sm-9 main-page">
+        <div class="top-header">
+          <mat-toolbar>
+            <span class="spacer"></span>
+            <button mat-icon-button>
+              <a href="/login"><mat-icon>person</mat-icon></a>
+            </button>
+          </mat-toolbar>
+        </div>
+        <div class="spinner" *ngIf="!products">
+          <mat-spinner></mat-spinner>
+        </div>
+        <div class="product-list-container">
+          <ng-container *ngFor="let product of products">
+            <div class="outer-tile">
+              <product-tile [productData]="product"></product-tile>
+            </div>
+          </ng-container>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>

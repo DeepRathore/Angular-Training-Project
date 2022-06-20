@@ -1,0 +1,35 @@
+.tile-container {
+  background-color: #ffffff;
+  height: 98%;
+  margin: 0 10px 10px 0;
+  padding: 10px;
+  width: 98%;
+
+  .tile-header {
+    text-align: center;
+
+    img {
+      cursor: pointer;
+      height: 200px;
+      width: 200px;
+    }
+  }
+
+  .title {
+    display: block;
+    padding: 10px 0;
+  }
+
+  .price {
+    font-weight: 600;
+  }
+
+  .description,
+  .star-rating {
+    padding: 5px 0;
+
+    .fa {
+      color: #f79321;
+    }
+  }
+}

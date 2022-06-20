@@ -1,0 +1,63 @@
+.title {
+  border-bottom: 1px solid #cccccc;
+  font-weight: 500;
+  padding: 20px;
+
+  img {
+    width: 30px;
+  }
+}
+
+.spacer {
+  flex: auto;
+}
+
+.main-page {
+  background: #eeeeee;
+}
+
+.top-header {
+  padding: 5px 10px;
+}
+
+.product-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.spinner {
+  display: block;
+  height: 100%;
+  margin: 30% 0;
+  padding: 10px 0;
+  width: 100%;
+
+  .mat-progress-spinner {
+    left: 50%;
+  }
+}
+
+.outer-tile {
+  width: 30%;
+}
+
+.main-container ul {
+  list-style: none;
+  text-align: center;
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  li {
+    padding: 10px;
+
+    button {
+      width: 100%;
+    }
+  }
+
+}
