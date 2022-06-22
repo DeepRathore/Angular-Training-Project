@@ -22,4 +22,10 @@ added lazy loading in category list and product list
 HttpInterceptorService set the headers token
 used pipe - in HttpInterceptorService for throwing error on api fail
 
+
+Reactive forms 
+Show/hide validation messages.
+add prod/ login 
+minimum 6 char in password with 1 special char, 1 capital and a small letter
+Optional: Add feature to disable the submit button initially and enable only after the form is valid.
     

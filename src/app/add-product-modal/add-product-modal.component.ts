@@ -14,14 +14,17 @@ export class AddProductModalComponent implements OnInit {
   ngOnInit(): void {
     this.addProdForm = this.formBuilder.group({
       title: ['', Validators.required],
-      price: new FormControl(''),
-      description: new FormControl(''),
-      image: new FormControl(''),
-      category: new FormControl('')
+      price: ['', Validators.required],
+      description: ['', Validators.required],
+      image: ['', Validators.required],
+      category: ['', Validators.required]
     })
   }
 
   submitForm() {
+    if(this.addProdForm.invalid) {
+      return;
+    }
     this.FetchProductsApiService.addProduct(this.addProdForm.value) 
     .subscribe(res => {
       if (res) {

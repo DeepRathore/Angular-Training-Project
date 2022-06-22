@@ -8,14 +8,18 @@
          <mat-form-field class="full-width form-group">
             <mat-label>Email</mat-label>
             <input formControlName="email"  required  type="email" matInput  placeholder="Email" name="email">
+            <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="text-danger">
+               Please enter Email
+             </div>
          </mat-form-field>
          <mat-form-field class="full-width form-group">
             <mat-label>Password</mat-label>
-            <input formControlName="password"  type="password"  matInput  placeholder="Password" name="password">
+            <input formControlName="password"  type="password"  matInput  placeholder="Password" name="password" [class.invalid]="loginForm.controls['password'].errors?.['required']" />
+            <span class="text-danger" *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].hasError('pattern')">Password must be of six characters and contain one capital letter and one special characters</span>
          </mat-form-field>
       </mat-card-content>
       <mat-card-actions>
-         <button mat-raised-button color="primary">LOGIN</button>
+         <button mat-raised-button color="primary" [disabled]="loginForm.invalid">LOGIN</button>
       </mat-card-actions>
    </mat-card>
 </form>

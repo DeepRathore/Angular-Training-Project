@@ -3,20 +3,32 @@
      <mat-card-content>
         <mat-form-field class="full-width form-group">
            <mat-label>Title</mat-label>
-           <input formControlName="title" required  type="text" matInput placeholder="Title" name="title">
+            <input formControlName="title" required  type="text" matInput placeholder="Title" name="title">
         </mat-form-field>
+        <div *ngIf="addProdForm.controls['title'].invalid && (addProdForm.controls['title'].dirty || addProdForm.controls['title'].touched)" class="text-danger">
+          Please enter title
+        </div>
         <mat-form-field class="full-width form-group">
            <mat-label>Price</mat-label>
            <input formControlName="price"  type="text"  matInput  placeholder="Add Price" name="price">
         </mat-form-field>
+        <div *ngIf="addProdForm.controls['price'].invalid && (addProdForm.controls['price'].dirty || addProdForm.controls['price'].touched)" class="text-danger">
+          Please enter price
+        </div>
         <mat-form-field class="full-width form-group">
           <mat-label>Description</mat-label>
           <input formControlName="description" type="text"  matInput  placeholder="Description" name="description">
        </mat-form-field>
+       <div *ngIf="addProdForm.controls['description'].invalid && (addProdForm.controls['description'].dirty || addProdForm.controls['description'].touched)" class="text-danger">
+        Please enter price
+      </div>
        <mat-form-field class="full-width form-group">
         <mat-label>Image Url</mat-label>
         <input formControlName="image" type="text" matInput  placeholder="Add url" name="image">
        </mat-form-field>
+       <div *ngIf="addProdForm.controls['image'].invalid && (addProdForm.controls['image'].dirty || addProdForm.controls['image'].touched)" class="text-danger">
+        Please enter price
+      </div>
        <mat-form-field appearance="fill">
         <mat-label>Category</mat-label>
         <select matNativeControl formControlName="category" name="category">
@@ -29,7 +41,7 @@
       </mat-form-field>
      </mat-card-content>
      <mat-card-actions>
-        <button mat-raised-button color="primary">Add Product</button>
+        <button mat-raised-button color="primary" [disabled]="addProdForm.invalid">Add Product</button>
      </mat-card-actions>
   </mat-card>
 </form>

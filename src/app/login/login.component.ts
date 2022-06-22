@@ -13,14 +13,18 @@ export class LoginComponent implements OnInit {
   public loginForm!: FormGroup
 
   constructor(private formbuilder: FormBuilder,private http: HttpClient, private router: Router) { }
+  public passwordPattern: string = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{6,}$';
 
   ngOnInit(): void {
     this.loginForm = this.formbuilder.group({
-      email: [''],
-      password: ['', Validators.required]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.pattern(this.passwordPattern)]]
     })
   }
   login(){
+    if(this.loginForm.invalid) {
+      return;
+    }
     this.http.get<any>("https://fakestoreapi.com/users")
     .subscribe(res=>{
       const user = res.find((a:any)=>{
