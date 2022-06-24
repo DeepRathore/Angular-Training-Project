@@ -12,6 +12,8 @@ import { MaterialModule } from './material/material.module';
 import { ProductTileComponent } from './product-tile/product-tile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartPageComponent } from './cart-page/cart-page.component';
+import { CartPriceSummaryComponent } from './cart-price-summary/cart-price-summary.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SideBarComponent,
     LoginComponent,
     ProductTileComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CartPageComponent,
+    CartPriceSummaryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+.cart-page-container {
+  margin: 50px;
+
+  .cart-item,
+  .price-section {
+    padding-bottom: 15px;
+
+    div {
+      display: inline-block;
+    }
+  }
+
+  .price-section {
+    padding: 20px;
+
+    div {
+      border-bottom: 1px solid #cccccc;
+      padding: 10px 0;
+    }
+  }
+}

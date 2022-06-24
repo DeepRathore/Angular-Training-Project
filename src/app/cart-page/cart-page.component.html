@@ -1,0 +1,19 @@
+<div class="cart-page-container row">
+  <div class="col-sm-8">
+    <ng-container *ngFor="let item of cartData">
+      <div class="cart-item col-sm-12">
+        <div class="item-name col-sm-6">{{item.title}}</div>
+        <div class="item-price col-sm-3">₹{{item.price}}</div>
+        <div class="col-sm-3">
+          <button mat-raised-button color="accent" *ngIf="!item.added" (click)="addItemToCart(item)"><mat-icon>shopping_cart</mat-icon></button>
+          <button mat-raised-button  *ngIf="item.added" (click)="removeItemToCart(item)">
+            <mat-icon>remove_shopping_cart</mat-icon>
+          </button>
+        </div>
+      </div>
+    </ng-container> 
+  </div>
+  <div class="col-sm-4 price-section">
+    <cart-price-summary></cart-price-summary>
+  </div>
+</div>
