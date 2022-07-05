@@ -5,10 +5,11 @@
   </mat-toolbar>
   <mat-spinner *ngIf="!productsList"></mat-spinner>
   <ng-container *ngIf="productsList">
+    <app-cart-list></app-cart-list>
     <mat-grid-list class="prod-container" cols="3">
       <div *ngFor="let prod of productsList">
         <mat-grid-tile class="section" id="{{prod.id}}">
-          <mat-card class="card-section">
+          <mat-card class ="card-section">
             <mat-card-header>
               <div mat-card-avatar class="header-image"></div>
               <mat-card-title>{{prod.title}}</mat-card-title>
@@ -21,12 +22,12 @@
             </mat-card-content>
             <mat-card-actions>
               <button mat-button><span class="text-primary">Price: {{prod.price}}</span></button>
-              <button mat-button><span class="text-primary">Rating: {{prod.rating.rate}}</span></button>
-              <button mat-button>Add To Cart</button>
+              <button class="add-to-cart" mat-raised-button color="warn" (click)="addToCartList(prod)">Add To Cart</button>
             </mat-card-actions>
           </mat-card>
         </mat-grid-tile>
       </div>
     </mat-grid-list>
+    <app-cart-total></app-cart-total>
   </ng-container>
 </div>

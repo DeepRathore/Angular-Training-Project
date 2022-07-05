@@ -34,6 +34,6 @@ export class FetchProductsApiService {
   }
 
   public addProduct(params: any):Observable<any> {
-    return this.http.post('https://fakestoreapi.com/products', params);
+    return this.http.post('http://localhost:3001/products.json', params);
   }
 }

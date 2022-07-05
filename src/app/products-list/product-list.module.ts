@@ -8,6 +8,9 @@ import {MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { CartListComponent } from '../cart-list/cart-list.component';
+import { MatListModule } from '@angular/material/list';
+import { CartTotalComponent } from '../cart-total/cart-total.component';
 
 @NgModule({
   imports: [
@@ -18,9 +21,14 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     MatGridListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatListModule
   ],
-  declarations: [ProductsListComponent]
+  declarations: [
+    ProductsListComponent,
+    CartListComponent,
+    CartTotalComponent
+  ]
 })
 export class ProductListModule { }
 

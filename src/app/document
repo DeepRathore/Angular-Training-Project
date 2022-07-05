@@ -29,3 +29,18 @@ add prod/ login
 minimum 6 char in password with 1 special char, 1 capital and a small letter
 Optional: Add feature to disable the submit button initially and enable only after the form is valid.
     
+
+Has subtotal section - includes products number, total and subtotal with gst
+Added products list section with price
+
+Cart service 
+for adding the items to the cart
+Added subject for components communication 
+sharedProductsList as observable, so one has to subscribe it so anyn time if productList emits change it will be observe by the observables.
+
+
+configured angular with rails
+Use Rack CORS for handling Cross-Origin Resource Sharing (CORS)
+Used rails backend 
+1. for adding products
+

@@ -2,6 +2,13 @@
   max-width: 330px;
   max-height: 430px;
   overflow: hidden;
+  position: relative;
+
+  .add-to-cart {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }
 
   .mat-card-content {
     overflow-y: auto;

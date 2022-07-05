@@ -1,0 +1,46 @@
+.cart-section {
+  position: absolute;
+  z-index: 10;
+  background-color: aliceblue;
+  width: 200px;
+  top: 0;
+  border-radius: 15px;
+
+
+  .added-prd {
+    border-bottom: 1px solid lightblue;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 20px 24px;
+    margin-bottom: 0px;
+  }
+
+  .mat-list {
+    padding: 20px;
+    border-bottom: 1px solid lightblue;
+  }
+
+  .mat-list-item {
+    height: auto;
+  }
+
+  .mat-fab {
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .mat-icon {
+    font-size: 18px;
+    margin-top: -20px;
+  }
+
+  .add {
+    padding: 11px 0;
+
+    .mat-icon {
+      height: 45px;
+      margin-top: -30px;
+    }
+  }
+}

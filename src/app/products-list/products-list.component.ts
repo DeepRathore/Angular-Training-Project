@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {FetchProductsApiService} from '../fetch-products-api.service';
 import {MatDialog} from '@angular/material/dialog';
 import { AddProductModalComponent } from '../add-product-modal/add-product-modal.component';
+import { CartService } from '../cart.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class ProductsListComponent implements OnInit {
   constructor(
     private FetchProductsApiService: FetchProductsApiService, 
     private router: Router,
+    private CartService: CartService,
     public dialog: MatDialog) {}
 
   ngOnInit(): void {
@@ -37,5 +39,9 @@ export class ProductsListComponent implements OnInit {
     this.dialog.open(AddProductModalComponent, {
       width: '30%'
     });
+  }
+
+  addToCartList(product: any) {
+    this.CartService.addToCart(product);
   }
 }

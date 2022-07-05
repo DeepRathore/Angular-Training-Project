@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import {FetchProductsApiService} from '../fetch-products-api.service'
+import {FetchProductsApiService} from '../fetch-products-api.service';
 
 @Component({
   selector: 'app-add-product-modal',

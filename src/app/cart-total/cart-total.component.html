@@ -1,0 +1,12 @@
+<div class="cart-section" *ngIf="total">
+    <div class="added-prd">Total Amount</div>
+    <div class="content">
+      <mat-list>
+        <mat-list-item><button mat-button><span class="text-primary">Total Items: {{totalItems.length}}</span></button></mat-list-item>
+        <mat-list-item><button mat-button><span class="text-primary">Total: {{total}}</span></button></mat-list-item>
+        <mat-list-item><button mat-button><span class="text-primary">GST: 18%</span></button></mat-list-item>
+        <mat-list-item><button mat-button><span class="text-primary">Subtotal: {{subtotal}}</span></button></mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+  

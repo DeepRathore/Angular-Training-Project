@@ -27,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { MatOptionModule } from '@angular/material/core';
-import { HttpInterceptorService } from './http-interceptor.service';
+import { HttpInterceptorService } from './http-interceptor.service';;
+import { CartService } from './cart.service';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { HttpInterceptorService } from './http-interceptor.service';
     MatOptionModule
   ],
   providers: [
+    CartService,
     AuthGuard, 
     {
       provide: HTTP_INTERCEPTORS,

@@ -1,0 +1,18 @@
+.cart-section {
+    position: absolute;
+    z-index: 10;
+    background-color: aliceblue;
+    width: 200px;
+    top: 0;
+    border-radius: 15px;
+    right: 0;
+  
+  
+    .added-prd {
+      border-bottom: 1px solid lightblue;
+      font-size: 20px;
+      font-weight: 500;
+      padding: 20px 24px;
+      margin-bottom: 0px;
+    }
+}

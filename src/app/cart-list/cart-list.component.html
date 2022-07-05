@@ -1,0 +1,19 @@
+<div class="cart-section" *ngIf="productsList.length > 0">
+  <div class="added-prd">Added Products</div>
+  <div class="content">
+    <mat-list *ngFor="let prod of productsList">
+      <mat-list-item> {{prod.title}} </mat-list-item>
+      <mat-list-item>
+        <button mat-button><span class="text-primary">Price: {{prod.price}}</span></button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-fab color="warn" (click)="remove(prod)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button class="add" mat-fab color="warn" (click)="increaseProduct(prod)">
+          <mat-icon>+</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
