@@ -10,14 +10,16 @@ export class CartPriceSummaryComponent implements OnInit {
   cartTotal: number = 0;
   gstAmount: number = 0;
   totalAmount: number = 0;
+  totalItems: number = 0;
   constructor(private cartPageService: CartPageService) { }
 
   ngOnInit(): void {
     this.cartPageService.getTotalPrice()
     .subscribe(data => {
-      this.cartTotal = Math.round(data);
-      this.gstAmount = Math.round(data * 18 / 100);
-      this.totalAmount = this.cartTotal + this.gstAmount;
+      this.cartTotal = Math.round(data.total);
+      this.gstAmount = Math.round(data.total * 18 / 100);
+      this.totalAmount = data.total + this.gstAmount;
+      this.totalItems = data.itemCount;
     });
   }
 

@@ -3,10 +3,16 @@
     <ng-container *ngFor="let item of cartData">
       <div class="cart-item col-sm-12">
         <div class="item-name col-sm-6">{{item.title}}</div>
-        <div class="item-price col-sm-3">₹{{item.price}}</div>
-        <div class="col-sm-3">
-          <button mat-raised-button color="accent" *ngIf="!item.added" (click)="addItemToCart(item)"><mat-icon>shopping_cart</mat-icon></button>
-          <button mat-raised-button  *ngIf="item.added" (click)="removeItemToCart(item)">
+        <div class="item-price col-sm-2">₹{{item.price}} <ng-container *ngIf="item.count && item.count > 0">x{{item.count}}</ng-container></div>
+        <div class="col-sm-1" *ngIf="item.added">
+          <button mat-mini-fab (click)="changeCount(item, 'addUnit')" color="warn">+</button>
+        </div>
+        <div class="col-sm-1" *ngIf="item.count && item.count > 0">
+          <button mat-mini-fab (click)="changeCount(item, 'removeUnit')" color="warn">-</button>
+        </div>
+        <div class="col-sm-2">
+          <button mat-raised-button color="accent" *ngIf="!item.added" (click)="changeCount(item, 'add')"><mat-icon>shopping_cart</mat-icon></button>
+          <button mat-raised-button  *ngIf="item.added" (click)="changeCount(item, 'remove')">
             <mat-icon>remove_shopping_cart</mat-icon>
           </button>
         </div>

@@ -5,15 +5,15 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartPageService {
-  totalPrice = new Subject<number>();
+  data = new Subject<any>();
 
   constructor() { }
 
-  getTotalPrice(): Observable<number> {
-    return this.totalPrice.asObservable();
+  getTotalPrice(): Observable<any> {
+    return this.data.asObservable();
   }
 
-  setTotalPrice(price: number) {
-    this.totalPrice.next(price);
+  setTotalPrice(data: any) {
+    this.data.next(data);
   }
 }

@@ -9,7 +9,6 @@ import { CartPageService } from './../services/cart-page.service'
 })
 export class CartPageComponent implements OnInit {
   cartData: any;
-  cartTotal: number = 0;
 
   constructor(private http: HttpClient, private cartPageService: CartPageService) { }
 
@@ -26,15 +25,38 @@ export class CartPageComponent implements OnInit {
   }
 
   addItemToCart(item: any) {
-    this.cartTotal += item.price;
-    this.cartPageService.setTotalPrice(this.cartTotal);
     item.added = true;
+    item.count = !item.count ? 1 : (item.count + 1);
+    this.calculateTotalPrice();
   }
 
   removeItemToCart(item: any) {
-    this.cartTotal -= item.price;
-    this.cartPageService.setTotalPrice(this.cartTotal);
     item.added = false;
+    item.count -= 1;
+    this.calculateTotalPrice();
   }
 
+  changeCount(item: any, action: string) {
+    if (action == 'removeUnit') {
+      item.count -= 1;
+    } else if (action == 'remove') {
+      item.count = 0;
+    } else {
+      item.count = item.count ? item.count : 0;
+      item.count += 1;
+    }
+    item.added = item.count && item.count > 0;
+    this.calculateTotalPrice();
+  }
+
+  calculateTotalPrice() {
+    let cartTotal: number = 0;
+    let itemCount: number = 0;
+    this.cartData.map((item: any) => {
+      if (!item.added) return;
+      cartTotal += item.price * (item.count ? item.count : 1);
+      itemCount += item.count ? item.count : 0;
+    });
+    this.cartPageService.setTotalPrice({total: cartTotal, itemCount: itemCount});
+  }
 }
